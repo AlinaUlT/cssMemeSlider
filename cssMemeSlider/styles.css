@@ -32,9 +32,10 @@ img {
     width: 100%;
 }
 .bottom{
-    width: 400%;
+    width: 100%;
     display: grid;
     grid-template-columns: 3fr 1fr;
+    gap:
 }
 
 .caption {
@@ -53,7 +54,7 @@ img {
 .slider-control {
     grid-column: 2/2;
     display: flex;
-    gap: 10px;
+    gap: 5.313rem;
 }
 
 .slider-control label {
