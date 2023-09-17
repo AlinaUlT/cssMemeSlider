@@ -6,7 +6,6 @@ body {
 .slider-container {
     max-width: 900px;
     margin: auto;
-    position: relative;
     overflow: clip;
 }
 
@@ -20,7 +19,11 @@ input[type="radio"] {
     transition: margin-left 0.5s ease;
 }
 
-.slide, .caption {
+.caption-wrapper {
+    grid-column: 1/2;
+}
+
+.slide {
     width: 25%;
     flex-shrink: 0;
 }
@@ -28,8 +31,14 @@ input[type="radio"] {
 img {
     width: 100%;
 }
+.bottom{
+    width: 400%;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
 
 .caption {
+    width: 30%;
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     padding: 10px;
@@ -42,6 +51,7 @@ img {
 }
 
 .slider-control {
+    grid-column: 2/2;
     display: flex;
     gap: 10px;
 }
@@ -61,32 +71,39 @@ img {
 }
 
 /* Выбранное (checked) состояние */
-input[type="radio"]:checked + label {
+/*input[type="radio"]:checked + div > label {
+
+}*/
+
+/*#slide1:checked + input + input + input + div + div + div > .slide1label*/
+#slide1:checked + input + input + input  + div + div > .slider-control > .slide1label{
+    border: 2px solid black;
+    background-color: red;
+}
+#slide2:checked + input + input + div + div > .slider-control > .slide2label {
+    border: 2px solid black;
+    background-color: red;
+}
+#slide3:checked + input + div + div > .slider-control > .slide3label {
+    border: 2px solid black;
+    background-color: red;
+}
+#slide4:checked + div + div > .slider-control > .slide4label {
     border: 2px solid black;
     background-color: red;
 }
 
 /* Выбранное состояние при наведении */
 input[type="radio"]:checked + label:hover {
-    border: 2px solid white;
+    border: 2px solid blue;
     background-color: transparent;
 }
-
-/*input[type="radio"]:checked + label:active {
-    background-color: transparent;
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    cursor: pointer;
-    border: 2px solid black;
-}*/
 
 #slide1:checked ~ .slider-wrapper {
     margin-left: 0;
 }
 
-#slide1:checked ~ .caption-wrapper {
+#slide1:checked ~ div.bottom > .caption-wrapper {
     margin-left: 0;
 }
 
@@ -94,7 +111,7 @@ input[type="radio"]:checked + label:hover {
     margin-left: -100%;
 }
 
-#slide2:checked ~ .caption-wrapper {
+#slide2:checked ~  div.bottom > .caption-wrapper {
     margin-left: -100%;
 }
 
@@ -102,7 +119,7 @@ input[type="radio"]:checked + label:hover {
     margin-left: -200%;
 }
 
-#slide3:checked ~ .caption-wrapper {
+#slide3:checked ~  div.bottom > .caption-wrapper {
     margin-left: -200%;
 }
 
@@ -110,15 +127,15 @@ input[type="radio"]:checked + label:hover {
     margin-left: -300%;
 }
 
-#slide4:checked ~ .caption-wrapper {
+#slide4:checked ~ div.bottom > .caption-wrapper {
     margin-left: -300%;
 }
 
 /* Показать нужную подпись */
-#slide1:checked ~ .caption-wrapper .caption1,
-#slide2:checked ~ .caption-wrapper .caption2,
-#slide3:checked ~ .caption-wrapper .caption3,
-#slide4:checked ~ .caption-wrapper .caption4 {
+#slide1:checked ~ div.bottom > .caption-wrapper .caption1,
+#slide2:checked ~ div.bottom > .caption-wrapper .caption2,
+#slide3:checked ~ div.bottom > .caption-wrapper .caption3,
+#slide4:checked ~ div.bottom > .caption-wrapper .caption4 {
     opacity: 1;
 }
 
