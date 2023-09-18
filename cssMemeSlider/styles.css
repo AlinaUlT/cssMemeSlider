@@ -11,7 +11,7 @@ body {
 }
 
 .slider-container {
-    max-width: 900px;
+    max-width: 56.25rem;
     margin: auto;
     overflow: clip;
 }
@@ -52,7 +52,7 @@ img {
     width: 30%;
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
-    padding: 10px;
+    padding: 1em;
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -65,7 +65,7 @@ img {
 .slider-control {
     grid-column: 2/2;
     display: flex;
-    gap: 10px;
+    gap: 1em;
     justify-content: flex-end;
 }
 
@@ -76,33 +76,33 @@ img {
     background-color: #5390a6;
     border-radius: 50%;
     cursor: pointer;
-    border: 2px solid #5390a6;
+    border: 0.2em solid #5390a6;
 }
 
 .slider-control label:hover {
     background-color: #7ac2dc;
-    border: 2px solid #7ac2dc;
+    border: 0.2em solid #7ac2dc;
 }
 
 #slide1:checked + input + input + input  + div + div > .slider-control > .slide1label{
-    border: 2px solid #3b6775;
+    border: 0.2em solid #3b6775;
     background-color: #7ac2dc;
 }
 #slide2:checked + input + input + div + div > .slider-control > .slide2label {
-    border: 2px solid #3b6775;
+    border: 0.2em solid #3b6775;
     background-color: #7ac2dc;
 }
 #slide3:checked + input + div + div > .slider-control > .slide3label {
-    border: 2px solid #3b6775;
+    border: 0.2em solid #3b6775;
     background-color: #7ac2dc;
 }
 #slide4:checked + div + div > .slider-control > .slide4label {
-    border: 2px solid #3b6775;
+    border: 0.2em solid #3b6775;
     background-color: #7ac2dc;
 }
 
 input[type="radio"]:checked + label:hover {
-    border: 2px solid #7ac2dc;
+    border: 0.2em solid #7ac2dc;
     background-color: transparent;
 }
 
@@ -146,7 +146,7 @@ input[type="radio"]:checked + label:hover {
     transform: scaleX(1);
 }
 
-@media (max-width: 767px) {
+@media (max-width: 47.9375rem) {
 
     .bottom{
         grid-template-areas: "control" "caption";
@@ -159,5 +159,6 @@ input[type="radio"]:checked + label:hover {
 
     .slider-control{
         grid-area: control;
+        justify-content: center;
     }
 }
