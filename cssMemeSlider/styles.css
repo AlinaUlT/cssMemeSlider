@@ -151,6 +151,7 @@ input[type="radio"]:checked + label:hover {
     .bottom{
         grid-template-areas: "control" "caption";
         grid-template-columns: 1fr;
+        gap: 1em;
     }
 
     .caption-wrapper{
