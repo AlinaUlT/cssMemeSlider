@@ -1,6 +1,13 @@
+@font-face {
+    font-family: "Jojo";
+        src: url("SFFedora.ttf") format("truetype");
+}
+
 body {
     margin: 25% auto;
     padding: 0;
+    font-family: "Jojo", sans-serif;
+    font-size: 1.25em;
 }
 
 .slider-container {
@@ -21,6 +28,7 @@ input[type="radio"] {
 
 .caption-wrapper {
     grid-column: 1/2;
+    overflow: hidden;
 }
 
 .slide {
@@ -35,7 +43,9 @@ img {
     width: 100%;
     display: grid;
     grid-template-columns: 3fr 1fr;
-    gap:
+    gap: 5rem;
+    align-items: center;
+    grid-template-areas: "caption control";
 }
 
 .caption {
@@ -49,54 +59,50 @@ img {
     justify-content: center;
     opacity: 0;
     transition: opacity 0.5s ease;
+    transform: scaleX(0);
 }
 
 .slider-control {
     grid-column: 2/2;
     display: flex;
-    gap: 5.313rem;
+    gap: 10px;
+    justify-content: flex-end;
 }
 
 .slider-control label {
     display: inline-block;
-    width: 15px;
-    height: 15px;
-    background-color: black;
+    width: 1em;
+    height: 1em;
+    background-color: #5390a6;
     border-radius: 50%;
     cursor: pointer;
+    border: 2px solid #5390a6;
 }
 
-/* Обычное состояние при наведении */
 .slider-control label:hover {
-    background-color: white;
+    background-color: #7ac2dc;
+    border: 2px solid #7ac2dc;
 }
 
-/* Выбранное (checked) состояние */
-/*input[type="radio"]:checked + div > label {
-
-}*/
-
-/*#slide1:checked + input + input + input + div + div + div > .slide1label*/
 #slide1:checked + input + input + input  + div + div > .slider-control > .slide1label{
-    border: 2px solid black;
-    background-color: red;
+    border: 2px solid #3b6775;
+    background-color: #7ac2dc;
 }
 #slide2:checked + input + input + div + div > .slider-control > .slide2label {
-    border: 2px solid black;
-    background-color: red;
+    border: 2px solid #3b6775;
+    background-color: #7ac2dc;
 }
 #slide3:checked + input + div + div > .slider-control > .slide3label {
-    border: 2px solid black;
-    background-color: red;
+    border: 2px solid #3b6775;
+    background-color: #7ac2dc;
 }
 #slide4:checked + div + div > .slider-control > .slide4label {
-    border: 2px solid black;
-    background-color: red;
+    border: 2px solid #3b6775;
+    background-color: #7ac2dc;
 }
 
-/* Выбранное состояние при наведении */
 input[type="radio"]:checked + label:hover {
-    border: 2px solid blue;
+    border: 2px solid #7ac2dc;
     background-color: transparent;
 }
 
@@ -132,20 +138,26 @@ input[type="radio"]:checked + label:hover {
     margin-left: -300%;
 }
 
-/* Показать нужную подпись */
 #slide1:checked ~ div.bottom > .caption-wrapper .caption1,
 #slide2:checked ~ div.bottom > .caption-wrapper .caption2,
 #slide3:checked ~ div.bottom > .caption-wrapper .caption3,
 #slide4:checked ~ div.bottom > .caption-wrapper .caption4 {
     opacity: 1;
+    transform: scaleX(1);
 }
 
-/* Desktop */
-@media (min-width: 768px) {
-    /* Add desktop-specific styles */
-}
-
-/* Mobile */
 @media (max-width: 767px) {
-    /* Add mobile-specific styles */
+
+    .bottom{
+        grid-template-areas: "control" "caption";
+        grid-template-columns: 1fr;
+    }
+
+    .caption-wrapper{
+        grid-area: caption;
+    }
+
+    .slider-control{
+        grid-area: control;
+    }
 }
