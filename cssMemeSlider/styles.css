@@ -69,6 +69,14 @@ img {
     justify-content: flex-end;
 }
 
+.slider-control div{
+    width: 1em;
+    height: 1em;
+    margin-top: -1em;
+    margin-left: -1em;
+    padding: 1em
+}
+
 .slider-control label {
     display: inline-block;
     width: 1em;
