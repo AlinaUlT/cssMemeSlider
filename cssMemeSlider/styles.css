@@ -1,0 +1,177 @@
+@font-face {
+    font-family: "Jojo";
+        src: url("SFFedora.ttf") format("truetype");
+}
+
+body {
+    margin: 25% auto;
+    padding: 0;
+    font-family: "Jojo", sans-serif;
+    font-size: 1.25em;
+}
+
+.slider-container {
+    max-width: 56.25rem;
+    margin: auto;
+    overflow: clip;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.slider-wrapper, .caption-wrapper {
+    width: 400%;
+    display: flex;
+    transition: margin-left 0.5s ease;
+}
+
+.caption-wrapper {
+    grid-column: 1/2;
+    overflow: hidden;
+}
+
+.slide {
+    width: 25%;
+    flex-shrink: 0;
+}
+
+img {
+    width: 100%;
+}
+.bottom{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    grid-template-areas: "caption control";
+}
+
+.caption {
+    width: 30%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 1em;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    transform: scaleX(0);
+}
+
+.slider-control {
+    grid-column: 2/2;
+    display: flex;
+    gap: 1em;
+    justify-content: flex-end;
+}
+
+.slider-control div{
+    width: 1em;
+    height: 1em;
+    margin-top: -1em;
+    margin-left: -1em;
+    padding: 1em
+}
+
+.slider-control label {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: #5390a6;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 0.2em solid #5390a6;
+}
+
+.slider-control label:hover {
+    background-color: #7ac2dc;
+    border: 0.2em solid #7ac2dc;
+}
+
+#slide1:checked + input + input + input  + div + div > .slider-control > .slide1label{
+    border: 0.2em solid #3b6775;
+    background-color: #7ac2dc;
+}
+#slide2:checked + input + input + div + div > .slider-control > .slide2label {
+    border: 0.2em solid #3b6775;
+    background-color: #7ac2dc;
+}
+#slide3:checked + input + div + div > .slider-control > .slide3label {
+    border: 0.2em solid #3b6775;
+    background-color: #7ac2dc;
+}
+#slide4:checked + div + div > .slider-control > .slide4label {
+    border: 0.2em solid #3b6775;
+    background-color: #7ac2dc;
+}
+
+input[type="radio"]:checked + label:hover {
+    border: 0.2em solid #7ac2dc;
+    background-color: transparent;
+}
+
+#slide1:checked ~ .slider-wrapper {
+    margin-left: 0;
+}
+
+#slide1:checked ~ div.bottom > .caption-wrapper {
+    margin-left: 0;
+}
+
+#slide2:checked ~ .slider-wrapper {
+    margin-left: -100%;
+}
+
+#slide2:checked ~  div.bottom > .caption-wrapper {
+    margin-left: -100%;
+}
+
+#slide3:checked ~ .slider-wrapper {
+    margin-left: -200%;
+}
+
+#slide3:checked ~  div.bottom > .caption-wrapper {
+    margin-left: -200%;
+}
+
+#slide4:checked ~ .slider-wrapper {
+    margin-left: -300%;
+}
+
+#slide4:checked ~ div.bottom > .caption-wrapper {
+    margin-left: -300%;
+}
+
+#slide1:checked ~ div.bottom > .caption-wrapper .caption1,
+#slide2:checked ~ div.bottom > .caption-wrapper .caption2,
+#slide3:checked ~ div.bottom > .caption-wrapper .caption3,
+#slide4:checked ~ div.bottom > .caption-wrapper .caption4 {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+@media (max-width: 47.9375rem) {
+
+    .bottom{
+        grid-template-areas: "control" "caption";
+        grid-template-columns: 1fr;
+        gap: 1em;
+    }
+
+    .caption-wrapper{
+        grid-area: caption;
+    }
+
+    .slider-control{
+        grid-area: control;
+        justify-content: center;
+    }
+    .caption {
+        text-align: left;
+        justify-content: flex-start;
+    }
+}
